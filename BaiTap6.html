@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BaiTap6</title>
+  <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <style>
+        body {
+            display: flex;
+            justify-content: center;
+        }
+        h1 {      
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: blue;
+            font-size: 20px;
+            transform: matrix(1,0,0,1,0,0);
+            transition: background-color 400ms ease, font-size 400ms ease, transform 500ms cubic-bezier(.2,.9,.3,1);
+        }
+        h1:hover {
+            background-color: red;
+            font-size: 50px;
+            transform: matrix(1.4,-0.54,0.54,1.4,0,0);
+        }
+    </style>
+  </style>
+</head>
+<body>
+  <!-- Kết hợp nhiều hiệu ứng -->
+  <h1 class="animate__animated animate__fadeInDown animate__delay-1s">CNTTKD</h1>
+  <script>
+    const title = document.querySelector("h1");
+    // Khi vào trang: thêm chuỗi hiệu ứng lần lượt
+    window.addEventListener("load", () => {
+      title.classList.add("animate__zoomIn");
+      setTimeout(() => {
+        title.classList.remove("animate__zoomIn");
+        title.classList.add("animate__pulse");
+      }, 1500);
+    });
+
+    // Khi hover: hiệu ứng RubberBand + HeartBeat
+    title.addEventListener("mouseover", () => {
+      title.classList.add("animate__rubberBand");
+      setTimeout(() => {
+        title.classList.remove("animate__rubberBand");
+        title.classList.add("animate__heartBeat");
+      }, 1000);
+    });
+
+    title.addEventListener("animationend", () => {
+      title.classList.remove("animate__heartBeat");
+    });
+  </script>
+</body>
+</html>
